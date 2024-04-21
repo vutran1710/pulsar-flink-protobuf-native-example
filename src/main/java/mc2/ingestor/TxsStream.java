@@ -16,9 +16,6 @@ import mc2.ingestor.utils.EnvironmentUtils;
 import org.apache.flink.util.Collector;
 
 import java.time.Duration;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Set;
 
 
 public class TxsStream {
@@ -35,7 +32,6 @@ public class TxsStream {
                             StartCursor.earliest(),
                             TransactionsInBlock.class);
 
-
             WatermarkStrategy<TransactionsInBlock> watermarkStrategy =
                     WatermarkStrategy.<TransactionsInBlock>forBoundedOutOfOrderness(Duration.ofSeconds(5))
                             .withTimestampAssigner(
@@ -43,63 +39,71 @@ public class TxsStream {
                             );
 
             // 3. Initialize Streams
-            DataStream<TransactionsInBlock> txsStream =
-                    env.fromSource(txsSource, watermarkStrategy, "Pulsar Txs Source")
-                            .name("pulsarTxsSource")
-                            .uid("pulsarTxsSource");
+            DataStream<TransactionsInBlock> txsStream = env
+                    .fromSource(txsSource, watermarkStrategy, "Pulsar Txs Source")
+                    .name("pulsarTxsSource")
+                    .uid("pulsarTxsSource");
 
-            DataStream<UserSwap> userSwapDataStream = txsStream.flatMap(new FlatMapFunction<TransactionsInBlock, UserSwap>() {
-                @Override
-                public void flatMap(TransactionsInBlock transactionsInBlock, Collector<UserSwap> collector) throws Exception {
-                    String userWallet = transactionsInBlock.getWallet();
-                    if (transactionsInBlock.getDataCount() > 1) {
-                        HashMap<String, Transaction> gives = new HashMap<>();
-                        HashMap<String, Transaction> takes = new HashMap<>();
 
-                        for (Transaction tx : transactionsInBlock.getDataList()) {
-                            if (tx.getFrom().equals(userWallet)) {
-                                gives.put(tx.getTo(), tx);
-                            }
+            DataStream<UserSwap> swapDataStream = txsStream
+                    .flatMap(new FlatMapFunction<TransactionsInBlock, UserSwap>() {
+                        @Override
+                        public void flatMap(TransactionsInBlock transactionsInBlock, Collector<UserSwap> collector) throws Exception {
+                            String userWallet = transactionsInBlock.getWallet().toLowerCase();
 
-                            if (tx.getTo().equals(userWallet)) {
-                                takes.put(tx.getFrom(), tx);
+                            if (transactionsInBlock.getDataCount() > 1) {
+
+                                if (transactionsInBlock.getDataCount() > 3) {
+                                    System.out.println(">>>>> " + userWallet + " has more than 3 transactions in the block. Bad logic...");
+                                    throw new Exception("Bad logic");
+                                }
+
+                                Transaction giveTx = null;
+                                Transaction takeTx = null;
+
+                                for (Transaction tx : transactionsInBlock.getDataList()) {
+                                    if (tx.getAmount() == 0) {
+                                        // This is a contract call, ignore
+                                        continue;
+                                    }
+
+                                    if (tx.getFrom().toLowerCase().equals(userWallet)) {
+                                        giveTx = tx;
+                                    }
+
+                                    if (tx.getTo().toLowerCase().equals(userWallet)) {
+                                        takeTx = tx;
+                                    }
+                                }
+
+                                if (giveTx != null && takeTx != null) {
+                                    UserSwap userSwap = UserSwap.newBuilder()
+                                            .setWallet(userWallet)
+                                            .setFromAmount(giveTx.getAmount())
+                                            .setToAmount(takeTx.getAmount())
+                                            .setFromAsset(giveTx.getAsset().getSymbol())
+                                            .setToAsset(takeTx.getAsset().getSymbol())
+                                            .setTimestamp(giveTx.getTimestamp())
+                                            .setBlockchain(giveTx.getBlockchain())
+                                            .build();
+                                    collector.collect(userSwap);
+                                }
                             }
                         }
+                    })
+                    .name("swapDataStream")
+                    .uid("txsStream");
 
-                        // Loop through exchangeTo and exchangeFrom to find the swaps
-                        Set<String> swapKeys = new HashSet<>(gives.keySet());
-                        swapKeys.retainAll(takes.keySet());
-                        // Loop through the swapKeys and emit the UserSwap
-                        for (String swapKey : swapKeys) {
-                            Transaction giveTx = gives.get(swapKey);
-                            Transaction takeTx = takes.get(swapKey);
-                            UserSwap userSwap = UserSwap.newBuilder()
-                                    .setFromAddr(giveTx.getFrom())
-                                    .setToAddr(giveTx.getTo())
-                                    .setFromAmount(giveTx.getAmount())
-                                    .setToAmount(takeTx.getAmount())
-                                    .setFromAsset(giveTx.getAsset().getSymbol())
-                                    .setToAsset(takeTx.getAsset().getSymbol())
-                                    .setTimestamp(giveTx.getTimestamp())
-                                    .setFromTxHash(giveTx.getHash())
-                                    .setToTxHash(takeTx.getHash())
-                                    .build();
-                            collector.collect(userSwap);
-                        }
-                    }
-                }
-
-            });
 
             txsStream
                     .print()
-                    .uid("print")
-                    .name("print");
+                    .uid("Txs Stream")
+                    .name("printing txs stream");
 
-            userSwapDataStream
+            swapDataStream
                     .print()
-                    .uid("Swaps --")
-                    .name("WalletSwaps");
+                    .uid("Swap Stream")
+                    .name("printing swap stream");
 
             env.execute("Txs Enrichment Stream");
         }

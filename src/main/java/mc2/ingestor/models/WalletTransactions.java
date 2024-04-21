@@ -5724,102 +5724,66 @@ public final class WalletTransactions {
           com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string from_addr = 1;</code>
-     * @return The fromAddr.
+     * <code>string wallet = 1;</code>
+     * @return The wallet.
      */
-    java.lang.String getFromAddr();
+    java.lang.String getWallet();
     /**
-     * <code>string from_addr = 1;</code>
-     * @return The bytes for fromAddr.
-     */
-    com.google.protobuf.ByteString
-    getFromAddrBytes();
-
-    /**
-     * <code>string to_addr = 2;</code>
-     * @return The toAddr.
-     */
-    java.lang.String getToAddr();
-    /**
-     * <code>string to_addr = 2;</code>
-     * @return The bytes for toAddr.
+     * <code>string wallet = 1;</code>
+     * @return The bytes for wallet.
      */
     com.google.protobuf.ByteString
-    getToAddrBytes();
+    getWalletBytes();
 
     /**
-     * <code>string from_asset = 3;</code>
+     * <code>string from_asset = 2;</code>
      * @return The fromAsset.
      */
     java.lang.String getFromAsset();
     /**
-     * <code>string from_asset = 3;</code>
+     * <code>string from_asset = 2;</code>
      * @return The bytes for fromAsset.
      */
     com.google.protobuf.ByteString
     getFromAssetBytes();
 
     /**
-     * <code>string to_asset = 4;</code>
+     * <code>string to_asset = 3;</code>
      * @return The toAsset.
      */
     java.lang.String getToAsset();
     /**
-     * <code>string to_asset = 4;</code>
+     * <code>string to_asset = 3;</code>
      * @return The bytes for toAsset.
      */
     com.google.protobuf.ByteString
     getToAssetBytes();
 
     /**
-     * <code>double from_amount = 5;</code>
+     * <code>double from_amount = 4;</code>
      * @return The fromAmount.
      */
     double getFromAmount();
 
     /**
-     * <code>double to_amount = 6;</code>
+     * <code>double to_amount = 5;</code>
      * @return The toAmount.
      */
     double getToAmount();
 
     /**
-     * <code>uint64 timestamp = 7;</code>
+     * <code>uint64 timestamp = 6;</code>
      * @return The timestamp.
      */
     long getTimestamp();
 
     /**
-     * <code>string from_tx_hash = 8;</code>
-     * @return The fromTxHash.
-     */
-    java.lang.String getFromTxHash();
-    /**
-     * <code>string from_tx_hash = 8;</code>
-     * @return The bytes for fromTxHash.
-     */
-    com.google.protobuf.ByteString
-    getFromTxHashBytes();
-
-    /**
-     * <code>string to_tx_hash = 9;</code>
-     * @return The toTxHash.
-     */
-    java.lang.String getToTxHash();
-    /**
-     * <code>string to_tx_hash = 9;</code>
-     * @return The bytes for toTxHash.
-     */
-    com.google.protobuf.ByteString
-    getToTxHashBytes();
-
-    /**
-     * <code>string blockchain = 10;</code>
+     * <code>string blockchain = 7;</code>
      * @return The blockchain.
      */
     java.lang.String getBlockchain();
     /**
-     * <code>string blockchain = 10;</code>
+     * <code>string blockchain = 7;</code>
      * @return The bytes for blockchain.
      */
     com.google.protobuf.ByteString
@@ -5838,12 +5802,9 @@ public final class WalletTransactions {
       super(builder);
     }
     private UserSwap() {
-      fromAddr_ = "";
-      toAddr_ = "";
+      wallet_ = "";
       fromAsset_ = "";
       toAsset_ = "";
-      fromTxHash_ = "";
-      toTxHash_ = "";
       blockchain_ = "";
     }
 
@@ -5872,86 +5833,48 @@ public final class WalletTransactions {
                       mc2.ingestor.models.WalletTransactions.UserSwap.class, mc2.ingestor.models.WalletTransactions.UserSwap.Builder.class);
     }
 
-    public static final int FROM_ADDR_FIELD_NUMBER = 1;
-    private volatile java.lang.Object fromAddr_;
+    public static final int WALLET_FIELD_NUMBER = 1;
+    private volatile java.lang.Object wallet_;
     /**
-     * <code>string from_addr = 1;</code>
-     * @return The fromAddr.
+     * <code>string wallet = 1;</code>
+     * @return The wallet.
      */
     @java.lang.Override
-    public java.lang.String getFromAddr() {
-      java.lang.Object ref = fromAddr_;
+    public java.lang.String getWallet() {
+      java.lang.Object ref = wallet_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs =
                 (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        fromAddr_ = s;
+        wallet_ = s;
         return s;
       }
     }
     /**
-     * <code>string from_addr = 1;</code>
-     * @return The bytes for fromAddr.
+     * <code>string wallet = 1;</code>
+     * @return The bytes for wallet.
      */
     @java.lang.Override
     public com.google.protobuf.ByteString
-    getFromAddrBytes() {
-      java.lang.Object ref = fromAddr_;
+    getWalletBytes() {
+      java.lang.Object ref = wallet_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b =
                 com.google.protobuf.ByteString.copyFromUtf8(
                         (java.lang.String) ref);
-        fromAddr_ = b;
+        wallet_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
 
-    public static final int TO_ADDR_FIELD_NUMBER = 2;
-    private volatile java.lang.Object toAddr_;
-    /**
-     * <code>string to_addr = 2;</code>
-     * @return The toAddr.
-     */
-    @java.lang.Override
-    public java.lang.String getToAddr() {
-      java.lang.Object ref = toAddr_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs =
-                (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        toAddr_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string to_addr = 2;</code>
-     * @return The bytes for toAddr.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-    getToAddrBytes() {
-      java.lang.Object ref = toAddr_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b =
-                com.google.protobuf.ByteString.copyFromUtf8(
-                        (java.lang.String) ref);
-        toAddr_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int FROM_ASSET_FIELD_NUMBER = 3;
+    public static final int FROM_ASSET_FIELD_NUMBER = 2;
     private volatile java.lang.Object fromAsset_;
     /**
-     * <code>string from_asset = 3;</code>
+     * <code>string from_asset = 2;</code>
      * @return The fromAsset.
      */
     @java.lang.Override
@@ -5968,7 +5891,7 @@ public final class WalletTransactions {
       }
     }
     /**
-     * <code>string from_asset = 3;</code>
+     * <code>string from_asset = 2;</code>
      * @return The bytes for fromAsset.
      */
     @java.lang.Override
@@ -5986,10 +5909,10 @@ public final class WalletTransactions {
       }
     }
 
-    public static final int TO_ASSET_FIELD_NUMBER = 4;
+    public static final int TO_ASSET_FIELD_NUMBER = 3;
     private volatile java.lang.Object toAsset_;
     /**
-     * <code>string to_asset = 4;</code>
+     * <code>string to_asset = 3;</code>
      * @return The toAsset.
      */
     @java.lang.Override
@@ -6006,7 +5929,7 @@ public final class WalletTransactions {
       }
     }
     /**
-     * <code>string to_asset = 4;</code>
+     * <code>string to_asset = 3;</code>
      * @return The bytes for toAsset.
      */
     @java.lang.Override
@@ -6024,10 +5947,10 @@ public final class WalletTransactions {
       }
     }
 
-    public static final int FROM_AMOUNT_FIELD_NUMBER = 5;
+    public static final int FROM_AMOUNT_FIELD_NUMBER = 4;
     private double fromAmount_;
     /**
-     * <code>double from_amount = 5;</code>
+     * <code>double from_amount = 4;</code>
      * @return The fromAmount.
      */
     @java.lang.Override
@@ -6035,10 +5958,10 @@ public final class WalletTransactions {
       return fromAmount_;
     }
 
-    public static final int TO_AMOUNT_FIELD_NUMBER = 6;
+    public static final int TO_AMOUNT_FIELD_NUMBER = 5;
     private double toAmount_;
     /**
-     * <code>double to_amount = 6;</code>
+     * <code>double to_amount = 5;</code>
      * @return The toAmount.
      */
     @java.lang.Override
@@ -6046,10 +5969,10 @@ public final class WalletTransactions {
       return toAmount_;
     }
 
-    public static final int TIMESTAMP_FIELD_NUMBER = 7;
+    public static final int TIMESTAMP_FIELD_NUMBER = 6;
     private long timestamp_;
     /**
-     * <code>uint64 timestamp = 7;</code>
+     * <code>uint64 timestamp = 6;</code>
      * @return The timestamp.
      */
     @java.lang.Override
@@ -6057,86 +5980,10 @@ public final class WalletTransactions {
       return timestamp_;
     }
 
-    public static final int FROM_TX_HASH_FIELD_NUMBER = 8;
-    private volatile java.lang.Object fromTxHash_;
-    /**
-     * <code>string from_tx_hash = 8;</code>
-     * @return The fromTxHash.
-     */
-    @java.lang.Override
-    public java.lang.String getFromTxHash() {
-      java.lang.Object ref = fromTxHash_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs =
-                (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        fromTxHash_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string from_tx_hash = 8;</code>
-     * @return The bytes for fromTxHash.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-    getFromTxHashBytes() {
-      java.lang.Object ref = fromTxHash_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b =
-                com.google.protobuf.ByteString.copyFromUtf8(
-                        (java.lang.String) ref);
-        fromTxHash_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int TO_TX_HASH_FIELD_NUMBER = 9;
-    private volatile java.lang.Object toTxHash_;
-    /**
-     * <code>string to_tx_hash = 9;</code>
-     * @return The toTxHash.
-     */
-    @java.lang.Override
-    public java.lang.String getToTxHash() {
-      java.lang.Object ref = toTxHash_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs =
-                (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        toTxHash_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string to_tx_hash = 9;</code>
-     * @return The bytes for toTxHash.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-    getToTxHashBytes() {
-      java.lang.Object ref = toTxHash_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b =
-                com.google.protobuf.ByteString.copyFromUtf8(
-                        (java.lang.String) ref);
-        toTxHash_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int BLOCKCHAIN_FIELD_NUMBER = 10;
+    public static final int BLOCKCHAIN_FIELD_NUMBER = 7;
     private volatile java.lang.Object blockchain_;
     /**
-     * <code>string blockchain = 10;</code>
+     * <code>string blockchain = 7;</code>
      * @return The blockchain.
      */
     @java.lang.Override
@@ -6153,7 +6000,7 @@ public final class WalletTransactions {
       }
     }
     /**
-     * <code>string blockchain = 10;</code>
+     * <code>string blockchain = 7;</code>
      * @return The bytes for blockchain.
      */
     @java.lang.Override
@@ -6185,35 +6032,26 @@ public final class WalletTransactions {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
             throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fromAddr_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, fromAddr_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(toAddr_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, toAddr_);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(wallet_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, wallet_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fromAsset_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, fromAsset_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, fromAsset_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(toAsset_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, toAsset_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, toAsset_);
       }
       if (java.lang.Double.doubleToRawLongBits(fromAmount_) != 0) {
-        output.writeDouble(5, fromAmount_);
+        output.writeDouble(4, fromAmount_);
       }
       if (java.lang.Double.doubleToRawLongBits(toAmount_) != 0) {
-        output.writeDouble(6, toAmount_);
+        output.writeDouble(5, toAmount_);
       }
       if (timestamp_ != 0L) {
-        output.writeUInt64(7, timestamp_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fromTxHash_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 8, fromTxHash_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(toTxHash_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 9, toTxHash_);
+        output.writeUInt64(6, timestamp_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(blockchain_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 10, blockchain_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, blockchain_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -6224,38 +6062,29 @@ public final class WalletTransactions {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fromAddr_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, fromAddr_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(toAddr_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, toAddr_);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(wallet_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, wallet_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fromAsset_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, fromAsset_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, fromAsset_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(toAsset_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, toAsset_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, toAsset_);
       }
       if (java.lang.Double.doubleToRawLongBits(fromAmount_) != 0) {
         size += com.google.protobuf.CodedOutputStream
-                .computeDoubleSize(5, fromAmount_);
+                .computeDoubleSize(4, fromAmount_);
       }
       if (java.lang.Double.doubleToRawLongBits(toAmount_) != 0) {
         size += com.google.protobuf.CodedOutputStream
-                .computeDoubleSize(6, toAmount_);
+                .computeDoubleSize(5, toAmount_);
       }
       if (timestamp_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-                .computeUInt64Size(7, timestamp_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fromTxHash_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, fromTxHash_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(toTxHash_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, toTxHash_);
+                .computeUInt64Size(6, timestamp_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(blockchain_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, blockchain_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, blockchain_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -6272,10 +6101,8 @@ public final class WalletTransactions {
       }
       mc2.ingestor.models.WalletTransactions.UserSwap other = (mc2.ingestor.models.WalletTransactions.UserSwap) obj;
 
-      if (!getFromAddr()
-              .equals(other.getFromAddr())) return false;
-      if (!getToAddr()
-              .equals(other.getToAddr())) return false;
+      if (!getWallet()
+              .equals(other.getWallet())) return false;
       if (!getFromAsset()
               .equals(other.getFromAsset())) return false;
       if (!getToAsset()
@@ -6288,10 +6115,6 @@ public final class WalletTransactions {
               other.getToAmount())) return false;
       if (getTimestamp()
               != other.getTimestamp()) return false;
-      if (!getFromTxHash()
-              .equals(other.getFromTxHash())) return false;
-      if (!getToTxHash()
-              .equals(other.getToTxHash())) return false;
       if (!getBlockchain()
               .equals(other.getBlockchain())) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
@@ -6305,10 +6128,8 @@ public final class WalletTransactions {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + FROM_ADDR_FIELD_NUMBER;
-      hash = (53 * hash) + getFromAddr().hashCode();
-      hash = (37 * hash) + TO_ADDR_FIELD_NUMBER;
-      hash = (53 * hash) + getToAddr().hashCode();
+      hash = (37 * hash) + WALLET_FIELD_NUMBER;
+      hash = (53 * hash) + getWallet().hashCode();
       hash = (37 * hash) + FROM_ASSET_FIELD_NUMBER;
       hash = (53 * hash) + getFromAsset().hashCode();
       hash = (37 * hash) + TO_ASSET_FIELD_NUMBER;
@@ -6322,10 +6143,6 @@ public final class WalletTransactions {
       hash = (37 * hash) + TIMESTAMP_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
               getTimestamp());
-      hash = (37 * hash) + FROM_TX_HASH_FIELD_NUMBER;
-      hash = (53 * hash) + getFromTxHash().hashCode();
-      hash = (37 * hash) + TO_TX_HASH_FIELD_NUMBER;
-      hash = (53 * hash) + getToTxHash().hashCode();
       hash = (37 * hash) + BLOCKCHAIN_FIELD_NUMBER;
       hash = (53 * hash) + getBlockchain().hashCode();
       hash = (29 * hash) + getUnknownFields().hashCode();
@@ -6456,9 +6273,7 @@ public final class WalletTransactions {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        fromAddr_ = "";
-
-        toAddr_ = "";
+        wallet_ = "";
 
         fromAsset_ = "";
 
@@ -6469,10 +6284,6 @@ public final class WalletTransactions {
         toAmount_ = 0D;
 
         timestamp_ = 0L;
-
-        fromTxHash_ = "";
-
-        toTxHash_ = "";
 
         blockchain_ = "";
 
@@ -6502,15 +6313,12 @@ public final class WalletTransactions {
       @java.lang.Override
       public mc2.ingestor.models.WalletTransactions.UserSwap buildPartial() {
         mc2.ingestor.models.WalletTransactions.UserSwap result = new mc2.ingestor.models.WalletTransactions.UserSwap(this);
-        result.fromAddr_ = fromAddr_;
-        result.toAddr_ = toAddr_;
+        result.wallet_ = wallet_;
         result.fromAsset_ = fromAsset_;
         result.toAsset_ = toAsset_;
         result.fromAmount_ = fromAmount_;
         result.toAmount_ = toAmount_;
         result.timestamp_ = timestamp_;
-        result.fromTxHash_ = fromTxHash_;
-        result.toTxHash_ = toTxHash_;
         result.blockchain_ = blockchain_;
         onBuilt();
         return result;
@@ -6560,12 +6368,8 @@ public final class WalletTransactions {
 
       public Builder mergeFrom(mc2.ingestor.models.WalletTransactions.UserSwap other) {
         if (other == mc2.ingestor.models.WalletTransactions.UserSwap.getDefaultInstance()) return this;
-        if (!other.getFromAddr().isEmpty()) {
-          fromAddr_ = other.fromAddr_;
-          onChanged();
-        }
-        if (!other.getToAddr().isEmpty()) {
-          toAddr_ = other.toAddr_;
+        if (!other.getWallet().isEmpty()) {
+          wallet_ = other.wallet_;
           onChanged();
         }
         if (!other.getFromAsset().isEmpty()) {
@@ -6584,14 +6388,6 @@ public final class WalletTransactions {
         }
         if (other.getTimestamp() != 0L) {
           setTimestamp(other.getTimestamp());
-        }
-        if (!other.getFromTxHash().isEmpty()) {
-          fromTxHash_ = other.fromTxHash_;
-          onChanged();
-        }
-        if (!other.getToTxHash().isEmpty()) {
-          toTxHash_ = other.toTxHash_;
-          onChanged();
         }
         if (!other.getBlockchain().isEmpty()) {
           blockchain_ = other.blockchain_;
@@ -6624,55 +6420,40 @@ public final class WalletTransactions {
                 done = true;
                 break;
               case 10: {
-                fromAddr_ = input.readStringRequireUtf8();
+                wallet_ = input.readStringRequireUtf8();
 
                 break;
               } // case 10
               case 18: {
-                toAddr_ = input.readStringRequireUtf8();
+                fromAsset_ = input.readStringRequireUtf8();
 
                 break;
               } // case 18
               case 26: {
-                fromAsset_ = input.readStringRequireUtf8();
-
-                break;
-              } // case 26
-              case 34: {
                 toAsset_ = input.readStringRequireUtf8();
 
                 break;
-              } // case 34
-              case 41: {
+              } // case 26
+              case 33: {
                 fromAmount_ = input.readDouble();
 
                 break;
-              } // case 41
-              case 49: {
+              } // case 33
+              case 41: {
                 toAmount_ = input.readDouble();
 
                 break;
-              } // case 49
-              case 56: {
+              } // case 41
+              case 48: {
                 timestamp_ = input.readUInt64();
 
                 break;
-              } // case 56
-              case 66: {
-                fromTxHash_ = input.readStringRequireUtf8();
-
-                break;
-              } // case 66
-              case 74: {
-                toTxHash_ = input.readStringRequireUtf8();
-
-                break;
-              } // case 74
-              case 82: {
+              } // case 48
+              case 58: {
                 blockchain_ = input.readStringRequireUtf8();
 
                 break;
-              } // case 82
+              } // case 58
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -6689,161 +6470,85 @@ public final class WalletTransactions {
         return this;
       }
 
-      private java.lang.Object fromAddr_ = "";
+      private java.lang.Object wallet_ = "";
       /**
-       * <code>string from_addr = 1;</code>
-       * @return The fromAddr.
+       * <code>string wallet = 1;</code>
+       * @return The wallet.
        */
-      public java.lang.String getFromAddr() {
-        java.lang.Object ref = fromAddr_;
+      public java.lang.String getWallet() {
+        java.lang.Object ref = wallet_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
                   (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          fromAddr_ = s;
+          wallet_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>string from_addr = 1;</code>
-       * @return The bytes for fromAddr.
+       * <code>string wallet = 1;</code>
+       * @return The bytes for wallet.
        */
       public com.google.protobuf.ByteString
-      getFromAddrBytes() {
-        java.lang.Object ref = fromAddr_;
+      getWalletBytes() {
+        java.lang.Object ref = wallet_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b =
                   com.google.protobuf.ByteString.copyFromUtf8(
                           (java.lang.String) ref);
-          fromAddr_ = b;
+          wallet_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <code>string from_addr = 1;</code>
-       * @param value The fromAddr to set.
+       * <code>string wallet = 1;</code>
+       * @param value The wallet to set.
        * @return This builder for chaining.
        */
-      public Builder setFromAddr(
+      public Builder setWallet(
               java.lang.String value) {
         if (value == null) {
           throw new NullPointerException();
         }
 
-        fromAddr_ = value;
+        wallet_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string from_addr = 1;</code>
+       * <code>string wallet = 1;</code>
        * @return This builder for chaining.
        */
-      public Builder clearFromAddr() {
+      public Builder clearWallet() {
 
-        fromAddr_ = getDefaultInstance().getFromAddr();
+        wallet_ = getDefaultInstance().getWallet();
         onChanged();
         return this;
       }
       /**
-       * <code>string from_addr = 1;</code>
-       * @param value The bytes for fromAddr to set.
+       * <code>string wallet = 1;</code>
+       * @param value The bytes for wallet to set.
        * @return This builder for chaining.
        */
-      public Builder setFromAddrBytes(
+      public Builder setWalletBytes(
               com.google.protobuf.ByteString value) {
         if (value == null) {
           throw new NullPointerException();
         }
         checkByteStringIsUtf8(value);
 
-        fromAddr_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object toAddr_ = "";
-      /**
-       * <code>string to_addr = 2;</code>
-       * @return The toAddr.
-       */
-      public java.lang.String getToAddr() {
-        java.lang.Object ref = toAddr_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-                  (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          toAddr_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string to_addr = 2;</code>
-       * @return The bytes for toAddr.
-       */
-      public com.google.protobuf.ByteString
-      getToAddrBytes() {
-        java.lang.Object ref = toAddr_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
-                  com.google.protobuf.ByteString.copyFromUtf8(
-                          (java.lang.String) ref);
-          toAddr_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string to_addr = 2;</code>
-       * @param value The toAddr to set.
-       * @return This builder for chaining.
-       */
-      public Builder setToAddr(
-              java.lang.String value) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-
-        toAddr_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string to_addr = 2;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearToAddr() {
-
-        toAddr_ = getDefaultInstance().getToAddr();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string to_addr = 2;</code>
-       * @param value The bytes for toAddr to set.
-       * @return This builder for chaining.
-       */
-      public Builder setToAddrBytes(
-              com.google.protobuf.ByteString value) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        checkByteStringIsUtf8(value);
-
-        toAddr_ = value;
+        wallet_ = value;
         onChanged();
         return this;
       }
 
       private java.lang.Object fromAsset_ = "";
       /**
-       * <code>string from_asset = 3;</code>
+       * <code>string from_asset = 2;</code>
        * @return The fromAsset.
        */
       public java.lang.String getFromAsset() {
@@ -6859,7 +6564,7 @@ public final class WalletTransactions {
         }
       }
       /**
-       * <code>string from_asset = 3;</code>
+       * <code>string from_asset = 2;</code>
        * @return The bytes for fromAsset.
        */
       public com.google.protobuf.ByteString
@@ -6876,7 +6581,7 @@ public final class WalletTransactions {
         }
       }
       /**
-       * <code>string from_asset = 3;</code>
+       * <code>string from_asset = 2;</code>
        * @param value The fromAsset to set.
        * @return This builder for chaining.
        */
@@ -6891,7 +6596,7 @@ public final class WalletTransactions {
         return this;
       }
       /**
-       * <code>string from_asset = 3;</code>
+       * <code>string from_asset = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearFromAsset() {
@@ -6901,7 +6606,7 @@ public final class WalletTransactions {
         return this;
       }
       /**
-       * <code>string from_asset = 3;</code>
+       * <code>string from_asset = 2;</code>
        * @param value The bytes for fromAsset to set.
        * @return This builder for chaining.
        */
@@ -6919,7 +6624,7 @@ public final class WalletTransactions {
 
       private java.lang.Object toAsset_ = "";
       /**
-       * <code>string to_asset = 4;</code>
+       * <code>string to_asset = 3;</code>
        * @return The toAsset.
        */
       public java.lang.String getToAsset() {
@@ -6935,7 +6640,7 @@ public final class WalletTransactions {
         }
       }
       /**
-       * <code>string to_asset = 4;</code>
+       * <code>string to_asset = 3;</code>
        * @return The bytes for toAsset.
        */
       public com.google.protobuf.ByteString
@@ -6952,7 +6657,7 @@ public final class WalletTransactions {
         }
       }
       /**
-       * <code>string to_asset = 4;</code>
+       * <code>string to_asset = 3;</code>
        * @param value The toAsset to set.
        * @return This builder for chaining.
        */
@@ -6967,7 +6672,7 @@ public final class WalletTransactions {
         return this;
       }
       /**
-       * <code>string to_asset = 4;</code>
+       * <code>string to_asset = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearToAsset() {
@@ -6977,7 +6682,7 @@ public final class WalletTransactions {
         return this;
       }
       /**
-       * <code>string to_asset = 4;</code>
+       * <code>string to_asset = 3;</code>
        * @param value The bytes for toAsset to set.
        * @return This builder for chaining.
        */
@@ -6995,7 +6700,7 @@ public final class WalletTransactions {
 
       private double fromAmount_ ;
       /**
-       * <code>double from_amount = 5;</code>
+       * <code>double from_amount = 4;</code>
        * @return The fromAmount.
        */
       @java.lang.Override
@@ -7003,7 +6708,7 @@ public final class WalletTransactions {
         return fromAmount_;
       }
       /**
-       * <code>double from_amount = 5;</code>
+       * <code>double from_amount = 4;</code>
        * @param value The fromAmount to set.
        * @return This builder for chaining.
        */
@@ -7014,7 +6719,7 @@ public final class WalletTransactions {
         return this;
       }
       /**
-       * <code>double from_amount = 5;</code>
+       * <code>double from_amount = 4;</code>
        * @return This builder for chaining.
        */
       public Builder clearFromAmount() {
@@ -7026,7 +6731,7 @@ public final class WalletTransactions {
 
       private double toAmount_ ;
       /**
-       * <code>double to_amount = 6;</code>
+       * <code>double to_amount = 5;</code>
        * @return The toAmount.
        */
       @java.lang.Override
@@ -7034,7 +6739,7 @@ public final class WalletTransactions {
         return toAmount_;
       }
       /**
-       * <code>double to_amount = 6;</code>
+       * <code>double to_amount = 5;</code>
        * @param value The toAmount to set.
        * @return This builder for chaining.
        */
@@ -7045,7 +6750,7 @@ public final class WalletTransactions {
         return this;
       }
       /**
-       * <code>double to_amount = 6;</code>
+       * <code>double to_amount = 5;</code>
        * @return This builder for chaining.
        */
       public Builder clearToAmount() {
@@ -7057,7 +6762,7 @@ public final class WalletTransactions {
 
       private long timestamp_ ;
       /**
-       * <code>uint64 timestamp = 7;</code>
+       * <code>uint64 timestamp = 6;</code>
        * @return The timestamp.
        */
       @java.lang.Override
@@ -7065,7 +6770,7 @@ public final class WalletTransactions {
         return timestamp_;
       }
       /**
-       * <code>uint64 timestamp = 7;</code>
+       * <code>uint64 timestamp = 6;</code>
        * @param value The timestamp to set.
        * @return This builder for chaining.
        */
@@ -7076,7 +6781,7 @@ public final class WalletTransactions {
         return this;
       }
       /**
-       * <code>uint64 timestamp = 7;</code>
+       * <code>uint64 timestamp = 6;</code>
        * @return This builder for chaining.
        */
       public Builder clearTimestamp() {
@@ -7086,161 +6791,9 @@ public final class WalletTransactions {
         return this;
       }
 
-      private java.lang.Object fromTxHash_ = "";
-      /**
-       * <code>string from_tx_hash = 8;</code>
-       * @return The fromTxHash.
-       */
-      public java.lang.String getFromTxHash() {
-        java.lang.Object ref = fromTxHash_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-                  (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          fromTxHash_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string from_tx_hash = 8;</code>
-       * @return The bytes for fromTxHash.
-       */
-      public com.google.protobuf.ByteString
-      getFromTxHashBytes() {
-        java.lang.Object ref = fromTxHash_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
-                  com.google.protobuf.ByteString.copyFromUtf8(
-                          (java.lang.String) ref);
-          fromTxHash_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string from_tx_hash = 8;</code>
-       * @param value The fromTxHash to set.
-       * @return This builder for chaining.
-       */
-      public Builder setFromTxHash(
-              java.lang.String value) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-
-        fromTxHash_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string from_tx_hash = 8;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearFromTxHash() {
-
-        fromTxHash_ = getDefaultInstance().getFromTxHash();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string from_tx_hash = 8;</code>
-       * @param value The bytes for fromTxHash to set.
-       * @return This builder for chaining.
-       */
-      public Builder setFromTxHashBytes(
-              com.google.protobuf.ByteString value) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        checkByteStringIsUtf8(value);
-
-        fromTxHash_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object toTxHash_ = "";
-      /**
-       * <code>string to_tx_hash = 9;</code>
-       * @return The toTxHash.
-       */
-      public java.lang.String getToTxHash() {
-        java.lang.Object ref = toTxHash_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-                  (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          toTxHash_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string to_tx_hash = 9;</code>
-       * @return The bytes for toTxHash.
-       */
-      public com.google.protobuf.ByteString
-      getToTxHashBytes() {
-        java.lang.Object ref = toTxHash_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
-                  com.google.protobuf.ByteString.copyFromUtf8(
-                          (java.lang.String) ref);
-          toTxHash_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string to_tx_hash = 9;</code>
-       * @param value The toTxHash to set.
-       * @return This builder for chaining.
-       */
-      public Builder setToTxHash(
-              java.lang.String value) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-
-        toTxHash_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string to_tx_hash = 9;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearToTxHash() {
-
-        toTxHash_ = getDefaultInstance().getToTxHash();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string to_tx_hash = 9;</code>
-       * @param value The bytes for toTxHash to set.
-       * @return This builder for chaining.
-       */
-      public Builder setToTxHashBytes(
-              com.google.protobuf.ByteString value) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        checkByteStringIsUtf8(value);
-
-        toTxHash_ = value;
-        onChanged();
-        return this;
-      }
-
       private java.lang.Object blockchain_ = "";
       /**
-       * <code>string blockchain = 10;</code>
+       * <code>string blockchain = 7;</code>
        * @return The blockchain.
        */
       public java.lang.String getBlockchain() {
@@ -7256,7 +6809,7 @@ public final class WalletTransactions {
         }
       }
       /**
-       * <code>string blockchain = 10;</code>
+       * <code>string blockchain = 7;</code>
        * @return The bytes for blockchain.
        */
       public com.google.protobuf.ByteString
@@ -7273,7 +6826,7 @@ public final class WalletTransactions {
         }
       }
       /**
-       * <code>string blockchain = 10;</code>
+       * <code>string blockchain = 7;</code>
        * @param value The blockchain to set.
        * @return This builder for chaining.
        */
@@ -7288,7 +6841,7 @@ public final class WalletTransactions {
         return this;
       }
       /**
-       * <code>string blockchain = 10;</code>
+       * <code>string blockchain = 7;</code>
        * @return This builder for chaining.
        */
       public Builder clearBlockchain() {
@@ -7298,7 +6851,7 @@ public final class WalletTransactions {
         return this;
       }
       /**
-       * <code>string blockchain = 10;</code>
+       * <code>string blockchain = 7;</code>
        * @param value The bytes for blockchain to set.
        * @return This builder for chaining.
        */
@@ -7434,13 +6987,12 @@ public final class WalletTransactions {
                     "transactions.Pagination\022\016\n\006wallet\030\003 \001(\t\"" +
                     "o\n\023TransactionsInBlock\0225\n\004data\030\001 \003(\0132\'.m" +
                     "obula_wallet_transactions.Transaction\022\016\n" +
-                    "\006wallet\030\002 \001(\t\022\021\n\ttimestamp\030\003 \001(\004\"\315\001\n\010Use" +
-                    "rSwap\022\021\n\tfrom_addr\030\001 \001(\t\022\017\n\007to_addr\030\002 \001(" +
-                    "\t\022\022\n\nfrom_asset\030\003 \001(\t\022\020\n\010to_asset\030\004 \001(\t\022" +
-                    "\023\n\013from_amount\030\005 \001(\001\022\021\n\tto_amount\030\006 \001(\001\022" +
-                    "\021\n\ttimestamp\030\007 \001(\004\022\024\n\014from_tx_hash\030\010 \001(\t" +
-                    "\022\022\n\nto_tx_hash\030\t \001(\t\022\022\n\nblockchain\030\n \001(\t" +
-                    "B\025\n\023mc2.ingestor.modelsb\006proto3"
+                    "\006wallet\030\002 \001(\t\022\021\n\ttimestamp\030\003 \001(\004\"\217\001\n\010Use" +
+                    "rSwap\022\016\n\006wallet\030\001 \001(\t\022\022\n\nfrom_asset\030\002 \001(" +
+                    "\t\022\020\n\010to_asset\030\003 \001(\t\022\023\n\013from_amount\030\004 \001(\001" +
+                    "\022\021\n\tto_amount\030\005 \001(\001\022\021\n\ttimestamp\030\006 \001(\004\022\022" +
+                    "\n\nblockchain\030\007 \001(\tB\025\n\023mc2.ingestor.model" +
+                    "sb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
             .internalBuildGeneratedFileFrom(descriptorData,
@@ -7481,7 +7033,7 @@ public final class WalletTransactions {
     internal_static_mobula_wallet_transactions_UserSwap_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_mobula_wallet_transactions_UserSwap_descriptor,
-            new java.lang.String[] { "FromAddr", "ToAddr", "FromAsset", "ToAsset", "FromAmount", "ToAmount", "Timestamp", "FromTxHash", "ToTxHash", "Blockchain", });
+            new java.lang.String[] { "Wallet", "FromAsset", "ToAsset", "FromAmount", "ToAmount", "Timestamp", "Blockchain", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
