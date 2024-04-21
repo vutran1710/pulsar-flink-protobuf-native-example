@@ -8,6 +8,7 @@ import mc2.ingestor.config.AppConfig;
 import org.apache.flink.api.common.eventtime.SerializableTimestampAssigner;
 import org.apache.flink.api.common.eventtime.WatermarkStrategy;
 import org.apache.flink.api.common.functions.FlatMapFunction;
+import org.apache.flink.connector.pulsar.sink.PulsarSink;
 import org.apache.flink.connector.pulsar.source.PulsarSource;
 import org.apache.flink.connector.pulsar.source.enumerator.cursor.StartCursor;
 import org.apache.flink.streaming.api.datastream.DataStream;
@@ -29,6 +30,7 @@ public class TxsStream {
                     EnvironmentUtils.initPulsarSource(
                             AppConfig.TXS_TOPIC,
                             "flink-wallet-tx-consumer",
+                            "flink-wallet-tx-consumer",
                             StartCursor.earliest(),
                             TransactionsInBlock.class);
 
@@ -45,7 +47,7 @@ public class TxsStream {
                     .uid("pulsarTxsSource");
 
 
-            DataStream<UserSwap> swapDataStream = txsStream
+            DataStream<UserSwap> swapsStream = txsStream
                     .flatMap(new FlatMapFunction<TransactionsInBlock, UserSwap>() {
                         @Override
                         public void flatMap(TransactionsInBlock transactionsInBlock, Collector<UserSwap> collector) throws Exception {
@@ -91,19 +93,23 @@ public class TxsStream {
                             }
                         }
                     })
-                    .name("swapDataStream")
-                    .uid("txsStream");
+                    .name("swapsStream")
+                    .uid("swapsStream");
 
+            // 4. Initialize UserSwap Sink
+            PulsarSink<UserSwap> userSwapSink = EnvironmentUtils.initPulsarSink(
+                    AppConfig.SWAP_TOPIC,
+                    "flink-wallet-swap-producer",
+                    UserSwap.class);
 
             txsStream
                     .print()
                     .uid("Txs Stream")
                     .name("printing txs stream");
 
-            swapDataStream
-                    .print()
-                    .uid("Swap Stream")
-                    .name("printing swap stream");
+            swapsStream.sinkTo(userSwapSink)
+                    .name("User Swap Sink")
+                    .uid("User Swap Sink");
 
             env.execute("Txs Enrichment Stream");
         }

@@ -7,7 +7,7 @@
     <list default="true" id="3f3894ff-4757-43cb-a582-394560b5944e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/mc2/ingestor/TxsStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mc2/ingestor/TxsStream.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mc2/ingestor/models/WalletTransactions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mc2/ingestor/models/WalletTransactions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mc2/ingestor/utils/EnvironmentUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mc2/ingestor/utils/EnvironmentUtils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +108,7 @@
       <workItem from="1713537490465" duration="3005000" />
       <workItem from="1713541457538" duration="1381000" />
       <workItem from="1713542850140" duration="40145000" />
-      <workItem from="1713695593730" duration="3266000" />
+      <workItem from="1713695593730" duration="4183000" />
     </task>
     <servers />
   </component>

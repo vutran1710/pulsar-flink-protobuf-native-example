@@ -7,6 +7,7 @@ import static org.apache.flink.configuration.TaskManagerOptions.TASK_OFF_HEAP_ME
 import mc2.ingestor.config.AppConfig;
 import org.apache.flink.configuration.Configuration;
 import org.apache.flink.configuration.MemorySize;
+import org.apache.flink.connector.pulsar.sink.PulsarSink;
 import org.apache.flink.connector.pulsar.source.PulsarSource;
 import org.apache.flink.connector.pulsar.source.enumerator.cursor.StartCursor;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
@@ -31,22 +32,33 @@ public class EnvironmentUtils {
 
     public static <T extends com.google.protobuf.GeneratedMessageV3> PulsarSource<T> initPulsarSource(String topicName,
                                                        String subscriptionName,
+                                                       String consumerName,
                                                        StartCursor startCursor,
                                                        Class<T> classz) {
-//        byte[] schemaBytes = classz.getDescriptor().toProto().toByteArray();
+
         Schema<T> schema = Schema.PROTOBUF_NATIVE(classz);
-
-//        ProtobufNativeSchema<T> schema = ProtobufNativeSchema.of(classz);
-
 
         return PulsarSource.builder()
                 .setServiceUrl(AppConfig.SERVICE_URL)
-                .setAdminUrl(AppConfig.SERVICE_HTTP_URL)
                 .setStartCursor(startCursor)
                 .setTopics(topicName)
                 .setDeserializationSchema(schema, classz)
                 .setSubscriptionName(subscriptionName)
-                .setConsumerName("flink-wallet-tx-consumer")
+                .setConsumerName(consumerName)
+                .build();
+    }
+
+    public static <T extends com.google.protobuf.GeneratedMessageV3> PulsarSink<T> initPulsarSink(String topicName,
+                                                                                                    String producerName,
+                                                                                                    Class<T> classz) {
+
+        Schema<T> schema = Schema.PROTOBUF_NATIVE(classz);
+
+        return PulsarSink.builder()
+                .setServiceUrl(AppConfig.SERVICE_URL)
+                .setProducerName(producerName)
+                .setTopics(topicName)
+                .setSerializationSchema(schema, classz)
                 .build();
     }
 
