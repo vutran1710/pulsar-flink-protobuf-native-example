@@ -35,7 +35,7 @@ public class TxsStream {
                             appConfig.SourceTopic,
                             "flink-wallet-tx-consumer",
                             "flink-wallet-tx-consumer",
-                            StartCursor.earliest(),
+                            StartCursor.latest(),
                             TransactionsInBlock.class);
 
             WatermarkStrategy<TransactionsInBlock> watermarkStrategy =
