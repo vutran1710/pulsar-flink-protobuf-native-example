@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3f3894ff-4757-43cb-a582-394560b5944e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mc2/ingestor/TxsStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mc2/ingestor/TxsStream.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mc2/ingestor/utils/EnvironmentUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mc2/ingestor/utils/EnvironmentUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mc2/ingestor/models/WalletTransactions.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,11 +27,6 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/main/java/mc2/ingestor/models/WalletTransactions.java" root0="SKIP_INSPECTION" />
-  </component>
-  <component name="JavaAutoRunManager">
-    <enabled-run-configurations>
-      <run-configuration type="MavenRunConfiguration" name="flink-pulsar-job [package]" />
-    </enabled-run-configurations>
   </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
@@ -52,7 +48,10 @@
     "Application.EnrichmentStream.executor": "Debug",
     "Application.Flink.executor": "Run",
     "Maven.flink-pulsar-job [clean].executor": "Run",
+    "Maven.flink-pulsar-job [com.github.os72:protoc-jar-maven-plugin:3.11.4:run].executor": "Run",
     "Maven.flink-pulsar-job [compile].executor": "Run",
+    "Maven.flink-pulsar-job [org.apache.maven.plugins:maven-resources-plugin:3.3.1:help].executor": "Run",
+    "Maven.flink-pulsar-job [org.apache.maven.plugins:maven-resources-plugin:3.3.1:resources].executor": "Run",
     "Maven.flink-pulsar-job [package].executor": "Run",
     "Maven.flink-pulsar-job [validate].executor": "Run",
     "Maven.flink-pulsar-job [verify].executor": "Run",
@@ -66,7 +65,7 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "onboarding.tips.debug.path": "/Users/vutran/IdeaProjects/flink-pulsar-job/src/main/java/mc2/ingestor/Main.java",
-    "project.structure.last.edited": "Project",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "run.code.analysis.last.selected.profile": "pProject Default",
@@ -108,7 +107,8 @@
       <workItem from="1713537490465" duration="3005000" />
       <workItem from="1713541457538" duration="1381000" />
       <workItem from="1713542850140" duration="40145000" />
-      <workItem from="1713695593730" duration="4183000" />
+      <workItem from="1713695593730" duration="5042000" />
+      <workItem from="1713764161584" duration="1364000" />
     </task>
     <servers />
   </component>
