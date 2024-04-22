@@ -1,12 +1,16 @@
 package mc2.ingestor.config;
 
-import java.util.Optional;
+import org.apache.flink.api.java.utils.ParameterTool;
 
 public class AppConfig {
-    public static final String SERVICE_HTTP_URL = "http://localhost:8080";
-    public static final String SERVICE_URL      = "pulsar://localhost:6650";
+    public String PulsarServiceUrl;
+    public String SourceTopic;
+    public String SinkTopic;
 
-    public static final String TXS_TOPIC = "pulsar/mobula/txs";
-    public static final String SWAP_TOPIC = "pulsar/mobula/swaps";
-
+    // init constructor
+    public AppConfig(ParameterTool parameters) {
+        this.PulsarServiceUrl = parameters.get("pulsar", "pulsar://localhost:6650");
+        this.SourceTopic = parameters.get("sourceTopic", "pulsar/mobula/txs");
+        this.SinkTopic = parameters.get("sinkTopic", "pulsar/mobula/txs");
+    }
 }

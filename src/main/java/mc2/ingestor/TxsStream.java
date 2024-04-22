@@ -1,19 +1,19 @@
 package mc2.ingestor;
 
+import mc2.ingestor.config.AppConfig;
+import mc2.ingestor.models.WalletTransactions.Transaction;
 import mc2.ingestor.models.WalletTransactions.TransactionsInBlock;
 import mc2.ingestor.models.WalletTransactions.UserSwap;
-import mc2.ingestor.models.WalletTransactions.Transaction;
-
-import mc2.ingestor.config.AppConfig;
+import mc2.ingestor.utils.EnvironmentUtils;
 import org.apache.flink.api.common.eventtime.SerializableTimestampAssigner;
 import org.apache.flink.api.common.eventtime.WatermarkStrategy;
 import org.apache.flink.api.common.functions.FlatMapFunction;
+import org.apache.flink.api.java.utils.ParameterTool;
 import org.apache.flink.connector.pulsar.sink.PulsarSink;
 import org.apache.flink.connector.pulsar.source.PulsarSource;
 import org.apache.flink.connector.pulsar.source.enumerator.cursor.StartCursor;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
-import mc2.ingestor.utils.EnvironmentUtils;
 import org.apache.flink.util.Collector;
 
 import java.time.Duration;
@@ -21,6 +21,9 @@ import java.time.Duration;
 
 public class TxsStream {
     public static void main(String[] args) throws Exception {
+        ParameterTool parameters = ParameterTool.fromArgs(args);
+        System.out.println("Parameters: " + parameters.toMap());
+        AppConfig appConfig = new AppConfig(parameters);
 
         // 1. Initialize the execution environment
         try (StreamExecutionEnvironment env = EnvironmentUtils.initEnvWithWebUI(false)) {
@@ -28,7 +31,8 @@ public class TxsStream {
             // 2. Initialize Sources
             PulsarSource<TransactionsInBlock> txsSource =
                     EnvironmentUtils.initPulsarSource(
-                            AppConfig.TXS_TOPIC,
+                            appConfig.PulsarServiceUrl,
+                            appConfig.SourceTopic,
                             "flink-wallet-tx-consumer",
                             "flink-wallet-tx-consumer",
                             StartCursor.earliest(),
@@ -98,7 +102,8 @@ public class TxsStream {
 
             // 4. Initialize UserSwap Sink
             PulsarSink<UserSwap> userSwapSink = EnvironmentUtils.initPulsarSink(
-                    AppConfig.SWAP_TOPIC,
+                    appConfig.PulsarServiceUrl,
+                    appConfig.SinkTopic,
                     "flink-wallet-swap-producer",
                     UserSwap.class);
 
